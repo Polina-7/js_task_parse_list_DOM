@@ -2,7 +2,7 @@
 
 const employeCount = document.querySelector('ul');
 
-function sortEmployees(list) {
+function sortList(list) {
   const employees = [...list.children];
 
   employees.sort((employ1, employ2) => {
@@ -19,7 +19,7 @@ function parseSalary(value) {
   return parseInt(value.replace(/[^\d]/g, ''), 10) || 0;
 }
 
-function createInfo(list) {
+function getEmployees(list) {
   return [...list.children].map((employe) => {
     const data = employe.dataset;
 
@@ -32,5 +32,5 @@ function createInfo(list) {
   });
 }
 
-sortEmployees(employeCount);
-createInfo(employeCount);
+sortList(employeCount);
+getEmployees(employeCount);
