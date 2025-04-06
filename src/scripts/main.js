@@ -3,16 +3,14 @@
 const employeCount = document.querySelector('ul');
 
 function sortList(list) {
-  const employees = [...list.children];
+  [...list.children]
+    .sort((employ1, employ2) => {
+      const salary1 = parseSalary(employ1.dataset.salary);
+      const salary2 = parseSalary(employ2.dataset.salary);
 
-  employees.sort((employ1, employ2) => {
-    const salary1 = parseSalary(employ1.dataset.salary);
-    const salary2 = parseSalary(employ2.dataset.salary);
-
-    return salary2 - salary1;
-  });
-
-  employees.forEach((emp) => list.appendChild(emp));
+      return salary2 - salary1;
+    })
+    .forEach((emp) => list.appendChild(emp));
 }
 
 function parseSalary(value) {
